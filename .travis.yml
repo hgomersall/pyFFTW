@@ -42,7 +42,8 @@ after_success:
   - gem env
   - rvm list
   - rvm default
-  - gem install --user-install github_changelog_generator
+  - ruby -v
+  - gem install github_changelog_generator
   - gem list
   - gem contents github_changelog_generator
   - export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"    
