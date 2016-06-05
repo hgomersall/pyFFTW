@@ -2,6 +2,11 @@ language: python
 
 sudo: false
 
+env:
+    global:
+        # gihub_changelog_generator API key
+        - secure: "cVLx3K6GXatYjpLHIPByBHLdNxcYrQyyESvg+JBxSkk7eVqkEDLw8BM4lkoCqG0vtrOcpiWAvV9hUo5pd9KijIbG8BoYWvNfs5rA3fUaK8fef7jhZcpaztZQK8rh05n2s8oheGUxhcIuKgKm0VP4FnoO//yjNmy9GQEm0gz9RJTW3zkd9JbZOkA8FqSgFFKlzSebaj841SKPh1Ax4O1rkf0KbSUPv/IS5eCgmY1yW7VpQJubXMrb6GAnrl+vADJCF/oFs7lM/4exU565dLgFmSFqDvt9re0RYof36rrz7EUSb0n7WV+j62waHf9RNiGVVt1B5/7zpVodJk2hIw+yrbuBXnKcLV7286/31ULxxoAfwL9DWQZdY1HbS/v4VOTdct7Wwftxjqj2D+bMgEBz3LxXSBOoPvpGWDL1N02O5Vs7GmMWGB8E2Q0HiXf7cKmJx8oRAgHY3naGVSWll98IONdx6bNos9Gs/xlYLE92pQYhoABTGELgebBFTcw+lXIv0pg1WVV8XsDieWX9ZWy5NIrbU1CQG4W+kGaTIraegTs9aHQWiHRxgQDE0+VgKsIpi2w7OjcnpewWiNDt8sNkTEi95WQcoMW1VC/mlq9IIK3TqcyVU4lGU6HCK1GvZVqsQMdjJg6oX2v5DtliM6DuNSzGnVjYgud+uqcs2USSRYg="
+
 python:
   - 2.7
   - 3.3
@@ -32,3 +37,7 @@ install:
   - python setup.py build_ext --inplace
 
 script: python setup.py test
+
+after_success:
+  - sudo gem install github_changelog_generator
+  - github_changelog_generator -u pyFFTW -p pyFFTW
