@@ -408,6 +408,11 @@ def setup_package():
     else:
         write_version_py()
 
+    # From the perspective of buildthedocs, we only needed to write the
+    # version, which is now done, so in that case we can drop out.
+    if os.environ.get('READTHEDOCS'):
+        return
+
     # Figure out whether to add ``*_requires = ['numpy']``.
     build_requires = []
     try:
