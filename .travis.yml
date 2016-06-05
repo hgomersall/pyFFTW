@@ -40,6 +40,8 @@ script: echo "done" #python setup.py test
 
 after_success:
   - gem env
+  - rmv default
+  - rvm 1.9.8
   - gem install --user-install github_changelog_generator
   - gem list
   - gem contents github_changelog_generator
