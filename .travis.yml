@@ -39,5 +39,5 @@ install:
 script: echo "done" #python setup.py test
 
 after_success:
-  - sudo gem install --user-install github_changelog_generator
+  - gem install --user-install github_changelog_generator
   - github_changelog_generator -u pyFFTW -p pyFFTW
